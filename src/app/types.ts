@@ -25,6 +25,17 @@ export interface Tool {
   parameters: ToolParameters;
 }
 
+export interface StateMachineStep {
+  id: string;
+  description: string;
+  instructions: string[];
+  examples: string[];
+  transitions: {
+    next_step: string;
+    condition: string;
+  }[];
+}
+
 export interface AgentConfig {
   name: string;
   publicDescription: string; // gives context to agent transfer tool
@@ -35,6 +46,7 @@ export interface AgentConfig {
     (args: any, transcriptLogsFiltered: TranscriptItem[]) => Promise<any> | any
   >;
   downstreamAgents?: AgentConfig[] | { name: string; publicDescription: string }[];
+  stateMachine?: StateMachineStep[];
 }
 
 export type AllAgentConfigsType = Record<string, AgentConfig[]>;
