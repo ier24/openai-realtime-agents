@@ -11,4 +11,4 @@ export const allAgentSets: AllAgentConfigsType = {
   restaurantReservation,
 };
 
-export const defaultAgentSetKey = "simpleExample";
+export const defaultAgentSetKey = "restaurantReservation";
